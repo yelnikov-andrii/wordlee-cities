@@ -1,0 +1,122 @@
+$ceilSideWidth: 50px;
+$keySize: 36px;
+
+.container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 50px 0;
+}
+
+.field {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 20px 0;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: 0 auto;
+  max-width: 490px;
+}
+
+.title {
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.message {
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+}
+
+.cell {
+  width: $ceilSideWidth;
+  height: $ceilSideWidth;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  font-weight: 500;
+  border-radius: 4px;
+
+  &--green {
+    background-color: green;
+    color: white;
+    transform: rotateX('180deg');
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
+  &--grey {
+    background-color: grey;
+    color: white;
+    transform: rotateX('180deg');
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
+  &--yellow {
+    background-color: orange;
+    transform: rotateX('180deg');
+    color: white;
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  width: $keySize;
+  min-width: max-content;
+  height: $keySize;
+  font-weight: 500;
+  font-size: 24px;
+  background-color: #fff;
+
+  &--disabled {
+    background-color: gray;
+  }
+}
+
+.restart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 10px 0;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(180deg);
+  }
+
+  to {
+    transform: rotateY(0deg);
+  }
+}
