@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.82d420bb.css",
-    "main.js": "/static/js/main.37976b03.js",
-    "index.html": "/index.html",
-    "main.82d420bb.css.map": "/static/css/main.82d420bb.css.map",
-    "main.37976b03.js.map": "/static/js/main.37976b03.js.map"
+    "main.css": "/wordlee-cities/static/css/main.82d420bb.css",
+    "main.js": "/wordlee-cities/static/js/main.37976b03.js",
+    "index.html": "/wordlee-cities/index.html",
+    "main.82d420bb.css.map": "/wordlee-cities/static/css/main.82d420bb.css.map",
+    "main.37976b03.js.map": "/wordlee-cities/static/js/main.37976b03.js.map"
   },
   "entrypoints": [
     "static/css/main.82d420bb.css",
