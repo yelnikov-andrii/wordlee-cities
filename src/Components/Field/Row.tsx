@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react';
-import { Cell } from './Cell';
+import  Cell  from './Cell';
+import styled from 'styled-components';
 
-export const Row: React.FC <any> = ({ word, guessedWord, show, setLetters }) => {
-  const arr = guessedWord.toUpperCase().split('');
+const StyledRow = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+export default function Row({ word, guessedWord, show, setLetters }: any) {
+    const arr = guessedWord.toUpperCase().split('');
 
   const guessedArr = guessedWord.toUpperCase().split('');
   const wordArr = word.toUpperCase().split('');
@@ -41,27 +48,30 @@ export const Row: React.FC <any> = ({ word, guessedWord, show, setLetters }) => 
   const lettersNotFound: any = [];
 
   for (let index of grey) {
-    lettersNotFound.push(word[index]);
+    if (!guessedWord.toUpperCase().includes(word[index])) {
+      lettersNotFound.push(word[index]);
+    }
   }
 
   useEffect(() => {
     if (show === true) {
       setLetters(lettersNotFound);
     }
-  }, [show])
+  }, [show]);
 
   return (
-    <div className='row'>
-      {arr.map((elem: string, index: number) => (
+    <StyledRow>
+        {arr.map((elem: string, index: number) => (
         <Cell
           key={elem + index}
-          letter={word?.slice(index, index + 1) || ''}
           green={show && green.includes(index)  ? true : false}
           yellow={(show && word[index] !== guessedWord[index] && yellow.includes(index)) ? true : false}
           grey={show && grey.includes(index)  ? true : false}
-        />
+          cellSideWidth={'50px'}
+        >
+            {word?.slice(index, index + 1) || ''}
+        </Cell>
       ))}
-    </div>
-  );
-};
-
+    </StyledRow>
+  )
+}

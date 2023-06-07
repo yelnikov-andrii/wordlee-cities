@@ -1,15 +1,19 @@
-import React, { useState, useMemo, useEffect, SetStateAction } from 'react';
-import './App.scss';
-import { Field } from './Components/Field';
-import { Keyboard } from './Components/Keyboard';
+import React, { useState, useMemo, useEffect } from 'react';
+import  Field from './Components/Field/Field';
+import  Keyboard from './Components/KeyBoard/KeyBoard';
 import { cities } from './utils/cities.js';
 import { allCities } from './utils/citiesToChoose';
+import Container from './Components/Layout/Container';
+import Title from './Components/Layout/Title';
+import Restart from './Components/Restart/Restart';
+import RestartButton from './Components/Restart/RestartButton';
+import Message from './Components/Message';
+import Header from './Components/Layout/Header';
 
 function App() {
   const [word, setWord] = useState('');
   const [words, setWords] = useState<any>([]);
   const [attempt, setAttempt] = useState(1);
-  const [restart, setRestart] = useState(false);
   const [message, setMessage] = useState('');
   const [lettersNotFound, setLettersNotFound] = useState<string[]>([]);
   const [changeTheWord, setChangeTheWord] = useState(false);
@@ -21,10 +25,10 @@ function App() {
     return allCities[random].toUpperCase();
   }, [changeTheWord]);
 
-  console.log(guessedWord);
+  console.log(guessedWord)
 
   useEffect(() => {
-    if (attempt === 5) {
+    if (attempt === 6) {
       setMessage('Слово было ' + guessedWord);
     }
   }, [attempt]);
@@ -49,7 +53,7 @@ function App() {
     if (cities.some((obj: any) => obj?.name.toLowerCase() === word.toLowerCase())) {
       checkTheAnswer();
     } else {
-      setMessage('К сожалению этот город не существует, или автор его еще не добавил')
+      setMessage('К сожалению этот город не существует, или автор его еще не добавил');
     }
   }
 
@@ -69,40 +73,37 @@ function App() {
     setAttempt(1);
     setMessage('');
     setLettersNotFound([]);
-    setRestart(false);
     setChangeTheWord(!changeTheWord);
   }
 
   return (
     <div className="App">
-      <header className='header'>
-        <div className='container'>
-          <h1 className='title'>
-            Угадай город
-          </h1>
-          <div className='restart'>
-          <button onClick={restartGame}>
-            Restart
-          </button>
-          </div>
-          <div className='message'>
-            {message}
-          </div>
-          <Field 
-            guessedWord={guessedWord}
-            words={words}
-            word={word}
-            attempt={attempt}
-            setLetters={getLetters}
-          />
-          <Keyboard 
-            clickTheLetter={clickTheLetter}
-            deleteLetter={deleteLetter}
-            checkTheWord={checkTheWord}
-            lettersNotFound={lettersNotFound}
-          />
-        </div>
-      </header>
+      <Header>
+        <Container>
+          <Title />
+          <Restart click={restartGame}>
+            <RestartButton click={restartGame}>
+              Restart
+            </RestartButton>
+          </Restart>
+        </Container>
+      </Header>
+      <Container>
+        <Message>{message}</Message>
+        <Field
+          guessedWord={guessedWord}
+          words={words}
+          word={word}
+          attempt={attempt}
+          setLetters={getLetters}
+        />
+        <Keyboard
+          clickTheLetter={clickTheLetter}
+          deleteLetter={deleteLetter}
+          checkTheWord={checkTheWord}
+          lettersNotFound={lettersNotFound}
+        />
+      </Container>
     </div>
   );
 }
