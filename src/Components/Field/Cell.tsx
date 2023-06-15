@@ -29,6 +29,12 @@ const StyledCell = styled.div<CellProps>`
   font-weight: 500;
   border-radius: 4px;
 
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+    font-size: 2em;
+  }
+
   ${props =>
     props.green &&
     css`

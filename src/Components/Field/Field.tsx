@@ -8,6 +8,11 @@ const StyledField = styled.div`
     flex-direction: column;
     align-items: center;
     margin: 0 0 20px 0;
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+      padding: 10px;
+    }
 `
 
 export default function Field({ guessedWord, words, word, attempt, setLetters }: any) {

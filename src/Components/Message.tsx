@@ -8,6 +8,11 @@ const StyledMessage = styled.div`
     font-size: 18px;
     font-weight: 800;
     margin: 0 0 10px 0;
+
+    @media (max-width: 768px) {
+      height: 25px;
+      font-size: 14px;
+    }
 `
 
 interface Props {

@@ -17,6 +17,12 @@ const StyledButton = styled.button<ButtonProps>`
   font-weight: 500;
   font-size: 24px;
   background-color: ${props => (props.notFound ? 'gray' : '#fff')};
+
+  @media (max-width: 768px) {
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+  }
 `;
 
 export default function Button({ children, click, lettersNotFound, keySize }: any) {

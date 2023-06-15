@@ -11,6 +11,11 @@ const StyledKeyboard = styled.div`
     gap: 5px;
     margin: 0 auto;
     max-width: 490px;
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+      padding: 10px;
+    }
 `;
 
 interface KeyboardProps {

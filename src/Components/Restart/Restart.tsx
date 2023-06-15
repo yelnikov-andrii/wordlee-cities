@@ -5,7 +5,7 @@ const StyledRestart = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 0 10px 0;
+    margin: 0;
 `
 interface Props {
   children: React.ReactNode;

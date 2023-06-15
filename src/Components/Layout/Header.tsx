@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 const StyledHeader = styled.header`
     padding: 20px 0;
+
+    @media (max-width: 768px) {
+      padding: 10px 0;
+    }
 `
 interface Props {
     children: React.ReactNode;
