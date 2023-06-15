@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/wordlee-cities/static/js/main.192d9e90.js",
+    "main.js": "/wordlee-cities/static/js/main.e8d491c2.js",
     "index.html": "/wordlee-cities/index.html",
-    "main.192d9e90.js.map": "/wordlee-cities/static/js/main.192d9e90.js.map"
+    "main.e8d491c2.js.map": "/wordlee-cities/static/js/main.e8d491c2.js.map"
   },
   "entrypoints": [
-    "static/js/main.192d9e90.js"
+    "static/js/main.e8d491c2.js"
   ]
 }
